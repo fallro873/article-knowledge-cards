@@ -1,0 +1,11 @@
+# Results Claude saves while working; may contain personal documents
+Claude outputs/
+
+# Python
+__pycache__/
+*.pyc
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini

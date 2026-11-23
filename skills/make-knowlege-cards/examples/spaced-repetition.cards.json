@@ -1,0 +1,42 @@
+{
+  "title": "Why cramming fails and what works instead",
+  "source": "Sample article in this repository (examples/spaced-repetition.article.md)",
+  "lang": "en",
+  "cards": [
+    {
+      "title": "Forgetting curve",
+      "knowledge": "Memory loss is steepest in the first hours and days after learning and slows down afterwards.",
+      "introduction": "The German psychologist Hermann Ebbinghaus described this in 1885. He memorised lists of meaningless syllables and measured how much he could still recall later. Whoever learns something once and never returns to it loses most of it quickly.",
+      "example": "Students who reread their notes on the last evening often get through the exam the next morning, but a month later almost nothing is left."
+    },
+    {
+      "title": "Each review slows forgetting",
+      "knowledge": "Every time material is reviewed, it is forgotten more slowly than before.",
+      "introduction": "Ebbinghaus found this remedy in the same experiments that produced the forgetting curve. It is the reason why returning to material pays off more than learning it once."
+    },
+    {
+      "title": "Spacing effect",
+      "knowledge": "The same amount of study time works better when it is spread over several sessions than when it is spent in one block.",
+      "introduction": "Researchers call this the spacing effect. It follows from the fact that each review slows forgetting. The gaps between sessions can grow as the material becomes familiar.",
+      "example": "Four sessions of 15 minutes over two weeks leave more in memory than one full hour on the evening before the test."
+    },
+    {
+      "title": "Testing effect",
+      "knowledge": "Pulling an answer out of your own head strengthens memory more than reading the material again.",
+      "introduction": "Reading a page again makes it feel familiar, and familiarity is easily mistaken for knowledge. Recalling works better even though it feels harder and less pleasant.",
+      "example": "Closing the book and writing down everything you remember about a chapter does more than reading the chapter a second time."
+    },
+    {
+      "title": "Leitner system",
+      "knowledge": "In the Leitner system, a flashcard answered correctly moves up one box and is reviewed less often, while a card answered wrongly goes back to box 1.",
+      "introduction": "The German science journalist Sebastian Leitner proposed the system for paper flashcards in the 1970s. All new cards start in box 1, which is reviewed every day. Difficult cards therefore come up often and easy ones rarely, without any planning.",
+      "example": "Box 1 is reviewed every day, the higher boxes for example every second, fourth and eighth day."
+    },
+    {
+      "title": "One answer per flashcard",
+      "knowledge": "A flashcard should have exactly one answer; cards that ask for several things at once are better split.",
+      "introduction": "A card that asks for several things at once is hard to grade.",
+      "example": "If you remember two of three parts of an answer, it is unclear whether the answer counts as right."
+    }
+  ]
+}

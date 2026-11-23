@@ -1,0 +1,3 @@
+[submodule "skills/ppt-master"]
+	path = skills/ppt-master
+	url = https://github.com/hugohe3/ppt-master.git

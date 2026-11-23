@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why cramming fails and what works instead</title>
+<style>
+  :root {
+    --bg: #f4f1ea; --card: #fffdf8; --ink: #1f2328; --muted: #646b73;
+    --line: #ddd6c8; --accent: #2f5d50; --soft: #e9f0ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17191c; --card: #202328; --ink: #e8e6e1; --muted: #a0a6ad;
+      --line: #343941; --accent: #7fc4ae; --soft: #26302d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  header, main { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+  header { padding-top: 40px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: flex-end; justify-content: space-between; }
+  h1 { font-family: Georgia, "Noto Serif", "Songti SC", serif; font-size: 2rem; line-height: 1.2; margin: 0 0 6px; }
+  #deck-meta { color: var(--muted); margin: 0; font-size: .92rem; overflow-wrap: anywhere; }
+  button {
+    font: inherit; font-size: .88rem; color: var(--ink); background: var(--card);
+    border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px; cursor: pointer;
+  }
+  button:hover { border-color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  main {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 20px; padding-top: 26px; padding-bottom: 60px; align-items: start;
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--accent);
+    border-radius: 10px; padding: 18px 20px 16px; break-inside: avoid;
+  }
+  .num { font-size: .76rem; letter-spacing: .08em; color: var(--muted); }
+  h2 { font-family: Georgia, "Noto Serif", "Songti SC", serif; font-size: 1.28rem; line-height: 1.25; margin: 4px 0 14px; }
+  .label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+  .part { margin: 0 0 14px; }
+  .part:last-child { margin-bottom: 0; }
+  .part p { margin: 0; overflow-wrap: anywhere; }
+  .knowledge { background: var(--soft); border-radius: 8px; padding: 10px 14px; }
+  .knowledge p { font-weight: 600; }
+  .example { border-left: 3px solid var(--accent); padding-left: 12px; }
+  .example p { font-size: .95rem; }
+  @media print {
+    :root { --bg: #fff; --card: #fff; --ink: #000; --muted: #444; --line: #bbb; --accent: #1d4a3e; --soft: #eef3f0; }
+    button { display: none; }
+    header { padding-top: 0; }
+    main { grid-template-columns: 1fr 1fr; gap: 12px; padding-bottom: 0; }
+    body { font-size: 10.5pt; }
+    .knowledge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1 id="deck-title"></h1>
+    <p id="deck-meta"></p>
+  </div>
+  <button id="print" type="button"></button>
+</header>
+<main id="grid"></main>
+<script id="deck-data" type="application/json">{"title": "Why cramming fails and what works instead", "source": "Sample article in this repository (examples/spaced-repetition.article.md)", "lang": "en", "cards": [{"title": "Forgetting curve", "knowledge": "Memory loss is steepest in the first hours and days after learning and slows down afterwards.", "introduction": "The German psychologist Hermann Ebbinghaus described this in 1885. He memorised lists of meaningless syllables and measured how much he could still recall later. Whoever learns something once and never returns to it loses most of it quickly.", "example": "Students who reread their notes on the last evening often get through the exam the next morning, but a month later almost nothing is left."}, {"title": "Each review slows forgetting", "knowledge": "Every time material is reviewed, it is forgotten more slowly than before.", "introduction": "Ebbinghaus found this remedy in the same experiments that produced the forgetting curve. It is the reason why returning to material pays off more than learning it once."}, {"title": "Spacing effect", "knowledge": "The same amount of study time works better when it is spread over several sessions than when it is spent in one block.", "introduction": "Researchers call this the spacing effect. It follows from the fact that each review slows forgetting. The gaps between sessions can grow as the material becomes familiar.", "example": "Four sessions of 15 minutes over two weeks leave more in memory than one full hour on the evening before the test."}, {"title": "Testing effect", "knowledge": "Pulling an answer out of your own head strengthens memory more than reading the material again.", "introduction": "Reading a page again makes it feel familiar, and familiarity is easily mistaken for knowledge. Recalling works better even though it feels harder and less pleasant.", "example": "Closing the book and writing down everything you remember about a chapter does more than reading the chapter a second time."}, {"title": "Leitner system", "knowledge": "In the Leitner system, a flashcard answered correctly moves up one box and is reviewed less often, while a card answered wrongly goes back to box 1.", "introduction": "The German science journalist Sebastian Leitner proposed the system for paper flashcards in the 1970s. All new cards start in box 1, which is reviewed every day. Difficult cards therefore come up often and easy ones rarely, without any planning.", "example": "Box 1 is reviewed every day, the higher boxes for example every second, fourth and eighth day."}, {"title": "One answer per flashcard", "knowledge": "A flashcard should have exactly one answer; cards that ask for several things at once are better split.", "introduction": "A card that asks for several things at once is hard to grade.", "example": "If you remember two of three parts of an answer, it is unclear whether the answer counts as right."}], "labels": {"knowledge": "Main knowledge", "introduction": "Introduction", "example": "Example", "source": "Source"}}</script>
+<script>
+(function () {
+  var deck = JSON.parse(document.getElementById('deck-data').textContent);
+  var ui = {
+    en: { cards: 'cards', card: 'Card', print: 'Print' },
+    de: { cards: 'Karten', card: 'Karte', print: 'Drucken' },
+    zh: { cards: '张卡片', card: '卡片', print: '打印' }
+  };
+  var t = ui[String(deck.lang || 'en').slice(0, 2).toLowerCase()] || ui.en;
+  var lab = deck.labels;
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function part(cls, label, text) {
+    var d = el('div', 'part ' + cls);
+    d.appendChild(el('span', 'label', label));
+    d.appendChild(el('p', '', text));
+    return d;
+  }
+
+  document.getElementById('deck-title').textContent = deck.title;
+  var meta = deck.cards.length + ' ' + t.cards;
+  if (deck.source) meta += ' · ' + lab.source + ': ' + deck.source;
+  document.getElementById('deck-meta').textContent = meta;
+
+  var grid = document.getElementById('grid');
+  deck.cards.forEach(function (c, i) {
+    var a = el('article', 'card');
+    a.appendChild(el('div', 'num', t.card + ' ' + (i + 1) + ' / ' + deck.cards.length));
+    a.appendChild(el('h2', '', c.title));
+    a.appendChild(part('knowledge', lab.knowledge, c.knowledge));
+    if (c.introduction) a.appendChild(part('introduction', lab.introduction, c.introduction));
+    if (c.example) a.appendChild(part('example', lab.example, c.example));
+    grid.appendChild(a);
+  });
+
+  var printBtn = document.getElementById('print');
+  printBtn.textContent = t.print;
+  printBtn.addEventListener('click', function () { window.print(); });
+})();
+</script>
+</body>
+</html>
